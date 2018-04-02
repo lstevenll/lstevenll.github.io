@@ -34,7 +34,7 @@ function updateTextArea(isInput) {
 
   selectedArea.empty()
   selectedArea.append(isInput ? $("<p>Input:</p>") : $("<p>Output:</p>"))
-  selectedArea.append($("<p>(format: words with not more than 10 letters (underscore can be used))</p>"))
+  selectedArea.append($("<p>(format: words with not more than 10 letters (underscore and number can be used))</p>"))
 
   for (var i = 0; i < count; i++) {
     var id = isInput ? "inputTextArea" : "outputTextArea"
@@ -72,7 +72,6 @@ function submitForm1() {
     $("#validationError").text("")
   }
 
-  // $("#step1").hide()
   $("#step2").show()
   configStateTransitionStateNameTable()
   configStateTransitionTable()
@@ -165,7 +164,7 @@ function getInputOptionString() {
 
 function addRow(state) {
   if (stateCountArray[state] >= stateCount) {
-    $("#addRowError").text("Reach maximum allowed states.")
+    $("#addRowError").text("Maximum number of state-change reached.")
     return
   } else {
     $("#addRowError").text("")
@@ -239,10 +238,11 @@ function submitForm2() {
     }
   }
 
-  // $("#step2").hide()
+ 
   $("#step3").show()
 }
 
+//step 3
 function getStateName(i) {
   var stateName = $("#transitionStateName" + i).val()
   if (!stateName) {
@@ -251,7 +251,7 @@ function getStateName(i) {
   return stateName
 }
 
-// step 3
+
 function showMoore() {
   $("#mealy").hide()
   $("#moore").show()
@@ -397,7 +397,7 @@ function submitForm3(type, outputT) {
     transitionT.push(formattedRow)
   }
 
-  // todo: use ajax to pass user input data to backend for further processing
+  // data required by partner
   console.log("inputs: ")
   console.log(inputs)
   console.log("outputs: ")
@@ -418,11 +418,11 @@ function submitForm3(type, outputT) {
   console.log("outputT: ")
   console.log(outputT)
 
-  // draw canvas
-  drawMoore(transitionT)
+  // draw diagram
+  drawDiag(transitionT)
 }
 
-// draw canvas
+// from template
 
 function loadMagic() {
   var $ = go.GraphObject.make;  // for conciseness in defining templates
@@ -512,7 +512,7 @@ function getStateIdFromText(text) {
   }
 }
 
-function drawMoore(arr) {
+function drawDiag(arr) {
   var nodeDataArray = []
   for (var i = 0; i < stateCount; i++) {
     var text = stateArr[i].text
