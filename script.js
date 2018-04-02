@@ -1,4 +1,4 @@
-// states
+
 var inputCount = 1
 var outputCount = 1
 var stateCount = 1
