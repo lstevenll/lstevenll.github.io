@@ -440,8 +440,50 @@ function submitForm3(type, outputT) {
 }
 
 //draw diagram
-function drawSTD(){
-	drawDiag(USER_INPUT.transitionT)
+function drawSTD0(){
+	  outputTable = []
+  for (var i = 0; i < stateTransitionTable.length; i++) {
+    var row = stateTransitionTable[i]
+    var state = getStateName(row[0].substring(1,2))
+
+    var inputString = ""
+    for (var j = 1; j < row.length - 1; j++) {
+      inputString += row[j]
+    }
+
+    var outputString = ""
+    for (var j = 0; j < outputCount; j++) {
+      var id = "mealy" + (i + 1) + "output" + (j + 1)
+      outputString += $("#" + id + " option:selected").text()
+    }
+
+    outputTable.push([state, inputString, outputString])
+  }
+
+  drawSTD1("Mealy", outputTable)
+	
+}
+
+function drawSTD1(type, outputT){
+	  var states = []
+  for (var i = 0; i < stateCount; i++) {
+    states.push($("#transitionStateName" + i).val())
+  }
+
+  var transitionT = []
+  for (var i = 0; i < stateTransitionTable.length; i++) {
+    var row = stateTransitionTable[i]
+    var formattedRow = []
+    formattedRow.push(getStateName(row[0].substring(1,2)))
+    var inputString = ""
+    for (var j = 1; j < row.length - 1; j++) {
+      inputString += row[j]
+    }
+    formattedRow.push(inputString)
+    formattedRow.push(getStateName(row[row.length - 1].substring(1,2)))
+    transitionT.push(formattedRow)
+  }
+  drawDiag(transitionT)
 }
 
 // from template
