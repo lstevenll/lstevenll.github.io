@@ -16,8 +16,14 @@
   <div id="step1" class="w3-row-padding w3-padding-64 w3-container">
     <div class="w3-content">
       <h2>Step1: Input and Output</h2>
-      <p>(Note: All input and ouput are 1-bit signals, i.e. 0,1,X(don't care))</p>
-
+	  <font color="red" size="4">
+    <p>Note: 
+	<br/>
+	1. Format: words with not more than 20 letters (underscore and numbers can be used)
+	<br/>
+	2. Every input and output must be unique.</p>
+	  </font>
+	
       Select the number of input:
       <select id="inputItemCount">
         <option value="1">1</option>
@@ -53,7 +59,7 @@
   <div id="step2" class="w3-row-padding w3-pale-yellow w3-padding-64 w3-container" style="display:none;">
     <div class="w3-content">
       <h2>Step2: State Transition Table</h2>
-      Select the number of states:
+      Select the number of state:
       <select id="stateCount">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -61,7 +67,8 @@
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-
+      <br/>
+	  <br/>
       <table border="1">
         <thead>
           <th>State</th>
@@ -70,9 +77,10 @@
         <tbody id="stateTransitionStateNameBody">
         </tbody>
       </table>
-
-      <button class="btn" style="display:block;" onclick="setStateName()">Enter</button> 
-	  <font color="red" size="5">Please press Enter to update the table below</font>
+      <br/>
+      <button class="btn" style="display:block;" onclick="setStateName()">Update State Transition Table</button> 
+	  <br/>
+	  <font color="red" size="4">Please press the above button to update the table below</font>
 	  
 	  <br/>
 	  <br/>
@@ -86,12 +94,15 @@
 
       <p style="color:red;" id="addRowError"></p>
 
-      <br/>
+<font color="red" size="4">Note: Have you entered all possible transitions?</font>
+<br/>
+<br/>
+	  
       Select your reset state:
       <select id="resetStateSelection">
       </select>
       <br/>
-
+      <br/>
       <button class="btn" style="display:block;" onclick="submitForm2()">Enter</button>
 
       <h4><br>Progress</h4>
@@ -104,10 +115,10 @@
   <div id="step3" class="w3-row-padding w3-pale-blue w3-padding-64 w3-container" style="display:none;">
     <div class="w3-content">
       <h2>Step3: Output Table</h2>
-
+       <p>Select the type of your state machine: </p>
       <div>
-        <button class="btn" onclick="showMoore()">moore</button>
-        <button class="btn" onclick="showMealy()">mealy</button>
+        <button class="btn" onclick="showMoore()">Moore</button>
+        <button class="btn" onclick="showMealy()">Mealy</button>
       </div>
 
       <br/>
@@ -123,7 +134,10 @@
 
         <br/>
         <div style="display:block;">
-          <button class="btn" onclick="submitMoore()">Enter</button>
+          <button class="btn" onclick="submitMoore()">Create my FSM simulation and HDL!</button>
+		      <br/>
+			  <br/>
+	      <button class="btn" onclick="drawSTD()">Create my state transition diagram!</button>
         </div>
       </div>
 
@@ -137,9 +151,14 @@
 
         <br/>
         <div style="display:block;">
-          <button class="btn" onclick="submitMealy()">Enter</button>
+          <button class="btn" onclick="submitMealy()">Create my FSM simulation and HDL!</button>
+		      <br/>
+			  <br/>
+	      <button class="btn" onclick="drawSTD()">Create my state transition diagram!</button>
         </div>
       </div>
+	  
+
 
       <h4><br>Progress</h4>
       <div class="w3-light-grey w3-round">
