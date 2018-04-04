@@ -42,7 +42,7 @@ function updateTextArea(isInput) {
 
   selectedArea.empty()
   selectedArea.append(isInput ? $("<p>Input:</p>") : $("<p>Output:</p>"))
-  selectedArea.append($("<p>(format: words with not more than 10 letters (underscore and number can be used))</p>"))
+
 
   for (var i = 0; i < count; i++) {
     var id = isInput ? "inputTextArea" : "outputTextArea"
@@ -74,7 +74,7 @@ function submitForm1() {
     $("#validationError").text("Invalid output!")
     return
   } else if (!isUnique(inputs.concat(outputs))) {
-    $("#validationError").text("Inputs and outputs must be unique.")
+    $("#validationError").text("Every input and output must be unique!")
     return
   } else {
     $("#validationError").text("")
@@ -104,7 +104,7 @@ function isUnique(arr) {
 }
 
 function validateString(input) {
-  if (input.length === 0 || input.length > 10) {
+  if (input.length === 0 || input.length > 20) {
     return false
   }
   var regex = /^([a-zA-Z0-9_]+)$/
@@ -436,8 +436,11 @@ function submitForm3(type, outputT) {
   console.log("outputT: ")
   console.log(USER_INPUT.outputT)
 
-  // draw diagram
-  drawDiag(transitionT)
+}
+
+//draw diagram
+function drawSTD(){
+	drawDiag(USER_INPUT.transitionT)
 }
 
 // from template
