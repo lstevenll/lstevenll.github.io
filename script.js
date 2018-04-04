@@ -418,6 +418,7 @@ function submitForm3(type, outputT) {
   // data required by partner
   console.log("inputs: ")
   console.log(USER_INPUT.inputs)
+	
   console.log("outputs: ")
   console.log(USER_INPUT.outputs)
 
