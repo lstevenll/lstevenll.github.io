@@ -446,7 +446,6 @@ window.open("../page.html");
 
 }
 
-//draw diagram
 function drawSTD0(){
 	  outputTable = []
   for (var i = 0; i < stateTransitionTable.length; i++) {
@@ -493,8 +492,7 @@ function drawSTD1(type, outputT){
   drawDiag(transitionT)
 }
 
-// from template
-
+//draw diagram using GoJS
 function loadMagic() {
   var $ = go.GraphObject.make;  // for conciseness in defining templates
 
