@@ -436,6 +436,13 @@ function submitForm3(type, outputT) {
 
   console.log("outputT: ")
   console.log(USER_INPUT.outputT)
+	
+	
+//////////////////////// EDITED BY SUN /////////////////////////
+sessionStorage.setItem("userInput", JSON.stringify(USER_INPUT));
+sessionStorage.setItem("fsmName", "My own FSM!");
+window.open("../page.html");
+////////////////////////////////////////////////////////////////
 
 }
 
